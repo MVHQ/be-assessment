@@ -12,14 +12,14 @@ This assessment will be have 3 parts:
 
 - To get price data please create a free account at https://etherscan.io/apis
 - Using docs find correct api endpoint to fetch latest eth price.
-- Please create a celery task to fetches the ethereum price every 5 min and save the price into a Django model(more info in next section).
-- Create schedule for tasks to run on recurring basis. If not done explicitly in code please leave instructions for us on how to setup/schedule.
-- Extra credit: implment retry and/or exponential back off strategies to handle edge cases.
+- Please create a celery task to fetch the Ethereum price every 5 min and save the price into a Django model(more info in next section).
+- Create a schedule for tasks to run on recurring basis. If not done explicitly in code please leave instructions for us on how to setup/schedule.
+- Extra credit: implement retry and/or exponential back off strategies to handle edge cases.
 - More extra credit: create logging for task.
 
 ## Models
 
-- Create a model that stores all data returned by the latest eth price endpoint including: ethbtc and ethusd.
+- Create a model that stores all data returned by the latest eth price endpoint including: **ethbtc** and **ethusd**.
 - Please make sure to save a native datetime as well to be used in the API section.
 - Assume this data will be used in time series data analysis as well as individual get requests.
 - Extra credit: Feel free to index for performance.
@@ -32,14 +32,13 @@ Please create the following endpoint:
 
 1. **/eth/time?before=<timestamp>&after=<timestamp>**
 
-- Take in optional parameters before and after parameters and returns all necessary results.
-- Using either your own code or django-rest-framework to implement limit/offset pagination in case results are long.
+- Take in optional parameters **before** and **after** parameters and returns all necessary results.
+- Using either your own code or **django-rest-framework** to implement **limit/offset** pagination in case results are long.
 
 2. **eth/time?time=<timestamp>**
 
-- take in timestamp and return closest possible eth price result.
+- Take in timestamp and return closest possible eth price result.
 - Show both requested time and returned time of price in result.
-  Extra
 - For extra consideration please write any test you find appropriate to insure the project requirements above are safely met.
 - Feel free to explain your thought process anywhere in code comments. We find it beneficial to not only see the how but to also understand the why!
 
